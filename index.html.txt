@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhananjay - Personal Website</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+/* Basic Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Splash Screen */
+#splash {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+#splash img {
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    transform: translateY(100px);
+    opacity: 0;
+    animation: slideIn 1s forwards;
+}
+
+#splash h1 {
+    color: white; font-size: 2.2em;
+    letter-spacing: 1px; opacity: 0;
+    transform: translateY(100px);
+    animation: slideIn 1s forwards 0.5s;
+    text-align: center;
+}
+
+@keyframes slideIn {
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Main Site */
+body {
+    font-family: 'Roboto', sans-serif; 
+    background: linear-gradient(180deg, #f0f8ff, #e0f7fa);
+    color: #333;
+}
+.hidden { display: none; }
+
+header { 
+    background: linear-gradient(90deg, #1e90ff, #00bfff); 
+    color: white; padding: 50px 20px; text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+header h1 { margin: 0; font-size: 2.8em; letter-spacing: 1px; }
+header p { margin: 10px auto 0; font-size: clamp(0.9em, 2.5vw, 1.3em); }
+
+section { padding: 50px 20px; text-align: center; opacity: 0; transform: translateY(50px); transition: all 1s ease; }
+section.visible { opacity: 1; transform: translateY(0); }
+section h2 { margin-bottom: 20px; font-size: 2em; color: #1e90ff; }
+
+img.main-img { 
+    border-radius: 50%; width: 180px; height: 180px; object-fit: cover; 
+    margin-bottom: 20px; border: 4px solid #1e90ff;
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+img.main-img:hover { transform: scale(1.08); box-shadow: 0 8px 16px rgba(0,0,0,0.3); }
+
+.card-container { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.card {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #ffffff, #e0f7fa);
+    padding: 22px; margin: 12px 0; border-radius: 14px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    width: 280px; text-align: center; font-size: 1.15em;
+    transition: transform 0.4s, box-shadow 0.4s, background 0.4s;
+}
+.card i { font-size: 1.8em; margin-bottom: 10px; color: #1e90ff; }
+.card:hover { transform: translateY(-10px); box-shadow: 0 14px 28px rgba(0,0,0,0.2); background: linear-gradient(135deg, #d0f0f7, #b2ebf2); }
+
+.message { 
+    background: #e0f7fa; color: #00796b; 
+    padding: 35px 25px; border-radius: 14px; margin: 30px auto; 
+    max-width: 850px; line-height: 1.7; text-align: left; white-space: pre-line; 
+    font-size: 1.05em; box-shadow: 0 8px 16px rgba(0,0,0,0.1); transition: transform 0.3s;
+}
+.message:hover { transform: scale(1.02); }
+
+.buttons {
+    display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 30px;
+}
+.buttons a {
+    width: 65px; height: 65px; display: flex; align-items: center; justify-content: center;
+    color: white; border-radius: 50%; text-decoration: none; font-size: 1.5em;
+    transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.buttons a:hover { transform: scale(1.15); box-shadow: 0 8px 16px rgba(0,0,0,0.3); }
+
+.email { background: #D44638; }
+.phone { background: #25D366; }
+.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+
+footer { text-align: center; padding: 25px; background: #1e90ff; color: white; font-size: 1em; margin-top: 50px; }
+
+@media(max-width: 600px){
+    .card { width: 90%; }
+    header h1 { font-size: 2.2em; }
+    header p { font-size: 0.9em; }
+}
+</style>
+</head>
+<body>
+
+<!-- Splash Screen -->
+<div id="splash">
+    <img src="https://i.ibb.co/tTtW485J/cropped-circle-image-6.png" alt="Dhananjay Splash">
+    <h1>You are in my World</h1>
+</div>
+
+<!-- Main Website -->
+<div id="mainSite" class="hidden">
+
+<header>
+    <h1>Dhananjay</h1>
+    <p>Empowering Change through Knowledge and Action</p>
+</header>
+
+<section id="about">
+    <img src="https://i.ibb.co/6cyBqXqK/IMG-17587904377989531.png" alt="Dhananjay" class="main-img">
+    <h2>About Me</h2>
+    <p>Hi! I'm Dhananjay, passionate about technology, education, and social reform. I strive to create impactful solutions that bridge gaps and foster inclusive growth.</p>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="card-container">
+        <div class="card"><i class="fas fa-project-diagram"></i> Architecting</div>
+        <div class="card"><i class="fab fa-html5"></i> HTML & CSS</div>
+        <div class="card"><i class="fas fa-robot"></i> AI Based Work</div>
+        <div class="card"><i class="fas fa-paint-brush"></i> Graphics Designer</div>
+        <div class="card">More...</div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="card-container">
+        <div class="card">App building Ongoing ⏸️</div>
+        <div class="card">Website ✅</div>
+        <div class="card">Business card & logo ✅</div>
+        <div class="card">More…</div>
+    </div>
+</section>
+
+<section id="note">
+    <h2>Note</h2>
+    <div class="message">
+&gt; Hello!  
+If you truly want to become successful, you must apply the (wwwH)-rule in your life. Without it, success will remain out of reach. People may misunderstand you, no matter which field you are in—whether it’s academics, your career, or any other area.
+
+Remember, success isn’t measured by how much money you have. True success comes when your actions inspire others or improve lives because of you
